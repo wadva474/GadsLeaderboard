@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.submission_fragment.*
 class SubmissionFragment : Fragment() {
 
 
-    val mainActivity: MainActivity
+    private val mainActivity: MainActivity
         get() {
             return activity as? MainActivity ?: throw IllegalStateException("Not attached!")
         }
@@ -41,12 +41,12 @@ class SubmissionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = SubmissionFragmentBinding.inflate(inflater, container, false)
-        confirmationDialogBinding = ConfirmationDialogBinding.inflate(inflater, container, false)
-        successDialogBinding = SuccessDialogBinding.inflate(inflater, container, false)
-        failureDialogBinding = FailureDialogBinding.inflate(inflater, container, false)
         binding.submitButton.setOnClickListener {
+            confirmationDialogBinding =
+                ConfirmationDialogBinding.inflate(inflater, container, false)
             val dialog =
                 MaterialAlertDialogBuilder(requireContext()).setView(confirmationDialogBinding.root)
+                    .setCancelable(false)
                     .show()
             confirmationDialogBinding.imageView.setOnClickListener {
                 dismissDialog(dialog)
@@ -68,9 +68,17 @@ class SubmissionFragment : Fragment() {
             }
         }
         viewModel.success.observe(viewLifecycleOwner) {
+            successDialogBinding = SuccessDialogBinding.inflate(inflater, container, false)
+            failureDialogBinding = FailureDialogBinding.inflate(inflater, container, false)
             when (it) {
-                true -> showDialog(successDialogBinding.root)
-                false -> showDialog(failureDialogBinding.root)
+                true -> {
+                    showDialog(successDialogBinding.root)
+                    viewModel.resetSuccessValue()
+                }
+                false -> {
+                    showDialog(failureDialogBinding.root)
+                    viewModel.resetSuccessValue()
+                }
 
             }
         }
@@ -79,6 +87,7 @@ class SubmissionFragment : Fragment() {
 
     private fun showDialog(view: View) {
         MaterialAlertDialogBuilder(requireContext()).setView(view)
+            .setCancelable(true)
             .show()
     }
 

@@ -1,5 +1,6 @@
 package com.wadud.gads.network.repository
 
+import android.util.Log
 import com.wadud.gads.model.Hours
 import com.wadud.gads.model.Skills
 import com.wadud.gads.network.ApiService
@@ -40,13 +41,14 @@ class ApiRepository @Inject constructor(
         name: String,
         lastName: String,
         linkToProject: String
-    ): Result<Void> {
+    ): Result<Unit> {
         return try {
             Result.Success(withContext(Dispatchers.IO) {
-                submissionService.makeSubmission(emailAddress, name, lastName, linkToProject)
+                submissionService.makeSubmissionAsync(emailAddress, name, lastName, linkToProject)
                     .await()
             })
         } catch (ex: Exception) {
+            Log.e("mistake", ex.message!!)
             return Result.Error(ex.message!!)
         }
     }

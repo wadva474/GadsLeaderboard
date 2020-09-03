@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.wadud.gads.databinding.RecyclerViewItem1Binding
+import com.wadud.gads.databinding.RecyclerViewItemBinding
+import com.wadud.gads.model.Hours
 import com.wadud.gads.model.Skills
 
 class SkillAdapterViewHolder(private val binding: RecyclerViewItem1Binding) :
@@ -22,4 +24,21 @@ class SkillAdapterViewHolder(private val binding: RecyclerViewItem1Binding) :
         }
     }
 
+}
+
+
+class HoursViewHolder(private val binding: RecyclerViewItemBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    fun bind(hours: Hours) {
+        binding.hour = hours
+        binding.executePendingBindings()
+    }
+
+    companion object {
+        fun from(parent: ViewGroup): HoursViewHolder {
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val binding = RecyclerViewItemBinding.inflate(layoutInflater, parent, false)
+            return HoursViewHolder(binding)
+        }
+    }
 }

@@ -9,5 +9,14 @@
         android:id="@+id/leaderBoardFragment"
         android:name="com.wadud.gads.ui.LeaderBoardFragment"
         android:label="leader_board_fragment"
-        tools:layout="@layout/leader_board_fragment" />
+        tools:layout="@layout/leader_board_fragment" >
+        <action
+            android:id="@+id/action_leaderBoardFragment_to_submissionFragment"
+            app:destination="@id/submissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="com.wadud.gads.ui.SubmissionFragment"
+        android:label="submission_fragment"
+        tools:layout="@layout/submission_fragment" />
 </navigation>

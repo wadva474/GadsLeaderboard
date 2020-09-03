@@ -1,10 +1,13 @@
 package com.wadud.gads.network.repository
 
+import com.wadud.gads.model.Hours
 import com.wadud.gads.model.Skills
 import com.wadud.gads.network.ApiService
+import com.wadud.gads.network.Result
 import com.wadud.gads.network.SubmissionService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 import javax.inject.Inject
 
 class ApiRepository @Inject constructor(
@@ -12,14 +15,24 @@ class ApiRepository @Inject constructor(
     private val submissionService: SubmissionService
 ) {
 
-    suspend fun getHours() {
-        withContext(Dispatchers.IO) {
-            service.getHoursAsync().await()
+    suspend fun getHours(): Result<List<Hours>> {
+        return try {
+            Result.Success(withContext(Dispatchers.IO) {
+                service.getHoursAsync().await()
+            })
+        } catch (ex: Exception) {
+            return Result.Error(ex.message!!)
         }
     }
 
-    suspend fun getSkills(): List<Skills> {
-        return service.getSkillsAsync().await()
+    suspend fun getSkills(): Result<List<Skills>> {
+        return try {
+            Result.Success(withContext(Dispatchers.IO) {
+                service.getSkillsAsync().await()
+            })
+        } catch (ex: Exception) {
+            return Result.Error(ex.message!!)
+        }
     }
 
     suspend fun makeSubmission(
@@ -27,9 +40,14 @@ class ApiRepository @Inject constructor(
         name: String,
         lastName: String,
         linkToProject: String
-    ) {
-        withContext(Dispatchers.IO) {
-            submissionService.makeSubmission(emailAddress, name, lastName, linkToProject)
+    ): Result<Void> {
+        return try {
+            Result.Success(withContext(Dispatchers.IO) {
+                submissionService.makeSubmission(emailAddress, name, lastName, linkToProject)
+                    .await()
+            })
+        } catch (ex: Exception) {
+            return Result.Error(ex.message!!)
         }
     }
 }

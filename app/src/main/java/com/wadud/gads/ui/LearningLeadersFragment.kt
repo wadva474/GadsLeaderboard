@@ -6,14 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import com.wadud.gads.HourAdapter
+import com.wadud.gads.MainActivity
+import com.wadud.gads.SkillsAdapter
 import com.wadud.gads.ui.viewModels.LearningLeadersViewModel
 import com.wadud.gads.databinding.LearningLeadersFragmentBinding
+import com.wadud.gads.network.LoadingStatus
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LearningLeadersFragment : Fragment() {
 
-    val viewModel: LearningLeadersViewModel by viewModels()
+    private val mainActivity: MainActivity
+        get() {
+            return activity as? MainActivity ?: throw IllegalStateException("Not attached!")
+        }
+
+    private val viewModel: LearningLeadersViewModel by viewModels()
     private lateinit var binding: LearningLeadersFragmentBinding
 
     override fun onCreateView(
@@ -21,6 +30,19 @@ class LearningLeadersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = LearningLeadersFragmentBinding.inflate(inflater, container, false)
+        val adapter = HourAdapter()
+        viewModel._leaders.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+        viewModel.loadingStatus.observe(viewLifecycleOwner) {
+            when (it) {
+                is LoadingStatus.Loading -> mainActivity.showLoading(it.message)
+                is LoadingStatus.Success -> mainActivity.dismissLoading()
+                is LoadingStatus.Error -> mainActivity.dismissLoading()
+            }
+        }
+
+        binding.hoursList.adapter = adapter
         return binding.root
     }
 

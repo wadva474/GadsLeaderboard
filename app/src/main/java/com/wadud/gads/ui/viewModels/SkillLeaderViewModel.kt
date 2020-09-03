@@ -6,23 +6,38 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wadud.gads.model.Skills
+import com.wadud.gads.network.LoadingStatus
+import com.wadud.gads.network.Result
 import com.wadud.gads.network.repository.ApiRepository
 import kotlinx.coroutines.launch
 
 class SkillLeaderViewModel @ViewModelInject constructor(private val repository: ApiRepository) :
     ViewModel() {
 
-    private val result = MutableLiveData<List<Skills>>()
-    val _result: LiveData<List<Skills>>
-        get() = result
+    private val _skillLeaders = MutableLiveData<List<Skills>>()
+    val skillLeaders: LiveData<List<Skills>>
+        get() = _skillLeaders
+
+    private val _loadingStatus = MutableLiveData<LoadingStatus>()
+    val loadingStatus: LiveData<LoadingStatus>
+        get() = _loadingStatus
 
     init {
         getSkillLeaders()
     }
 
     private fun getSkillLeaders() {
+        _loadingStatus.value = LoadingStatus.Loading("Fetching Skill Leaders ...")
         viewModelScope.launch {
-            result.value = repository.getSkills()
+            when (val result = repository.getSkills()) {
+                is Result.Success -> {
+                    _loadingStatus.value = LoadingStatus.Success
+                    _skillLeaders.value = result.data
+                }
+                is Result.Error -> {
+                    _loadingStatus.value = LoadingStatus.Error(result.message)
+                }
+            }
         }
     }
 

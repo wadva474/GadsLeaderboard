@@ -1,5 +1,6 @@
 package com.wadud.gads.network
 
+import kotlinx.coroutines.Deferred
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -13,5 +14,5 @@ interface SubmissionService {
         @Field("entry.1877115667") name: String,
         @Field("entry.2006916086") lastName: String,
         @Field("entry.284483984") linkToProject: String
-    )
+    ): Deferred<Void>
 }

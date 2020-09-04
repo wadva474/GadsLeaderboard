@@ -8,5 +8,8 @@ https://docs.google.com/document/d/1KS003bk1a-2bOfUnhXvnOPoHfPuKtdkTAQ_APljjgWc/
 The Application makes use of 
 - The MVVM Pattern
 - The repository pattern 
+- Dependency Injection with Hilt 
+- Coroutines 
+- Retrofit 
 
-![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png)
+![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png "Image Description")

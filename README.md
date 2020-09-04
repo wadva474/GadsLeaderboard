@@ -13,4 +13,5 @@ The Application makes use of
 - Retrofit 
 - View and Data Binding
 
-![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png?raw=true "Title")
+![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png)
+<img src="file:///Users/mac/Downloads/arch_guide_diagram.png" width="350" title="hover text">

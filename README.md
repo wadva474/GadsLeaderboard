@@ -13,7 +13,7 @@ The Application makes use of
 - Retrofit 
 - View and Data Binding
 - Navigation Component 
-![Pattern](./arch_guide_diagram.png)
+![Pattern](imagery/arch_guide_diagram.png)
 
 # Installation
 - Clone this repository and import into Android Studio

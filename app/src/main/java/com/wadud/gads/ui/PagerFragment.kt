@@ -10,6 +10,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.wadud.gads.R
 import com.wadud.gads.databinding.LeaderBoardFragmentBinding
+import com.wadud.gads.ui.learningLeaders.LearningLeadersFragment
+import com.wadud.gads.ui.skillLeaders.SkillLeaderFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 import kotlin.math.max

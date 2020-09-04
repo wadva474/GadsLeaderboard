@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/submissionFragment"
-        android:name="com.wadud.gads.ui.SubmissionFragment"
+        android:name="com.wadud.gads.ui.submissions.SubmissionFragment"
         android:label="submission_fragment"
         tools:layout="@layout/submission_fragment" />
 </navigation>

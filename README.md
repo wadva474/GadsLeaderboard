@@ -4,12 +4,14 @@ Andela Learning Community Associate Android Developer Practice Project
 # Task 
 https://docs.google.com/document/d/1KS003bk1a-2bOfUnhXvnOPoHfPuKtdkTAQ_APljjgWc/edit
 
-# APPROACH TO THE TASK 
+# Approach To the Task
 The Application makes use of 
 - The MVVM Pattern
 - The repository pattern 
 - Dependency Injection with Hilt 
 - Coroutines 
 - Retrofit 
+- View and Data Binding
 
-![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png "Image Description")
+![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png)
+<img src="file:///Users/mac/Downloads/arch_guide_diagram.png" alt="Pattern" width="200"/>

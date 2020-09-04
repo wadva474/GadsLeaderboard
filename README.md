@@ -9,4 +9,4 @@ The Application makes use of
 - The MVVM Pattern
 - The repository pattern 
 
-![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png)
+![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png)

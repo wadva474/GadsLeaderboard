@@ -38,10 +38,8 @@ https://github.com/wadva474/GadsLeaderboard/releases/download/v1.0/app-release-v
 - Create a new Pull Request
 
 # Screenshots 
-![Splash Screen](imagery/splashScreen.png)
-![Learning Leaders](imagery/learningLeaders.png)
-![Hours Leaders](imagery/skillIq.png)
-![submission](imagery/submission.png)
-![confirmation](imagery/confirmation.png)
-![success Dialog](imagery/submissionSuccessful.png)
+![Splash Screen](imagery/splashScreen.png) ![Learning Leaders](imagery/learningLeaders.png) ![Hours Leaders](imagery/skillIq.png)
+
+![submission](imagery/submission.png) ![confirmation](imagery/confirmation.png) ![success Dialog](imagery/submissionSuccessful.png)
+
 ![failure Dialog](imagery/unsuccful.png)

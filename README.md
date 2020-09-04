@@ -14,4 +14,3 @@ The Application makes use of
 - View and Data Binding
 
 ![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png)
-<img src="file:///Users/mac/Downloads/arch_guide_diagram.png" alt="Pattern" width="200"/>

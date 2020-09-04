@@ -15,6 +15,9 @@ The Application makes use of
 - Navigation Component 
 ![Pattern](imagery/arch_guide_diagram.png)
 
+# Application Downoad Link 
+https://github.com/wadva474/GadsLeaderboard/releases/download/v1.0/app-release-v1.0.apk
+
 # Installation
 - Clone this repository and import into Android Studio
 - Android studio version 4.2 

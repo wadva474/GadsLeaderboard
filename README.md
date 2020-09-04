@@ -15,6 +15,9 @@ The Application makes use of
 - Navigation Component 
 ![Pattern](imagery/arch_guide_diagram.png)
 
+# Application Downoad Link 
+https://github.com/wadva474/GadsLeaderboard/releases/download/v1.0/app-release-v1.0.apk
+
 # Installation
 - Clone this repository and import into Android Studio
 - Android studio version 4.2 
@@ -35,10 +38,8 @@ The Application makes use of
 - Create a new Pull Request
 
 # Screenshots 
-![Splash Screen](imagery/splashScreen.png)
-![Learning Leaders](imagery/learningLeaders.png)
-![Hours Leaders](imagery/skillIq.png)
-![submission](imagery/submission.png)
-![confirmation](imagery/confirmation.png)
-![success Dialog](imagery/submissionSuccessful.png)
+![Splash Screen](imagery/splashScreen.png) ![Learning Leaders](imagery/learningLeaders.png) ![Hours Leaders](imagery/skillIq.png)
+
+![submission](imagery/submission.png) ![confirmation](imagery/confirmation.png) ![success Dialog](imagery/submissionSuccessful.png)
+
 ![failure Dialog](imagery/unsuccful.png)

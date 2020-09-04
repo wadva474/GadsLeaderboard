@@ -13,4 +13,4 @@ The Application makes use of
 - Retrofit 
 - View and Data Binding
 
-![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png?raw=true "Title")
+![Pattern](file://Users/mac/Downloads/arch_guide_diagram.png?raw=true "Title")

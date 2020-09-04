@@ -8,4 +8,5 @@ https://docs.google.com/document/d/1KS003bk1a-2bOfUnhXvnOPoHfPuKtdkTAQ_APljjgWc/
 The Application makes use of 
 - The MVVM Pattern
 - The repository pattern 
-![Pattern] (file:///Users/mac/Downloads/arch_guide_diagram.png)
+
+![Pattern](file:///Users/mac/Downloads/arch_guide_diagram.png)
